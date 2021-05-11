@@ -34,22 +34,21 @@ var deal = function(p) {
   var card = [];
   var deck = createDeck();
   shuffle(deck);
-  p = 4; //hardcoding number of players for now
+  //p = 4; //hardcoding number of players for now
   console.log("SECOND SHUFFLE");
   console.log(deck);
-  card = deck.splice(0, 1);
-  console.log(card);
-  console.log(deck);
-  for (var a = 0; a < deck.length - 1; a++) {
-    for (p = 0; p < 5; p++) {
+  console.log(deck.length);
+  for (var a = 0; a < deck.length; a++) {
+    for (var b = 0; b < p; b++) {
       card = deck.splice(0, 1);
       console.log(card);
       console.log(deck);
-      //deck[a] = deck[a + 1];
+
     }
+      return card;
     //  console.log(card);
     console.log("HELLOOOOO");
-    return card;
+
   }
 
   //return shuffle(deck).splice(card, 1)[0];
@@ -60,4 +59,4 @@ console.log("FIRST SHUFFLE BEGINS");
 shuffle(testingDeck);
 console.log(testingDeck);
 console.log("FIRST SHUFFLE ENDS");
-deal(testingDeck);
+deal(5);
