@@ -4,10 +4,7 @@ function createDeck() {
   var suits = ['♡', '♣', '♢', '♠'];
 
   for (var sCounter = 0; sCounter < 4; sCounter++) {
-    //console.log(suits[sCounter]);
     for (var pCounter = 0; pCounter < 13; pCounter++) {
-      // console.log(pip[pCounter]);
-      //console.log(suits[sCounter] + pip[pCounter]);
       var suitsCreated = suits[sCounter];
       var pipCreated = pip[pCounter];
       deck.push(suitsCreated + pipCreated);
@@ -31,28 +28,46 @@ function shuffle(deck) {
 // console.log(testingDeck);
 
 var deal = function(p) {
-  var card = [];
-  var deck = createDeck();
-  shuffle(deck);
-  //p = 4; //hardcoding number of players for now
-  console.log("SECOND SHUFFLE");
-  console.log(deck);
-  console.log(deck.length);
- for (var b = 0; b < p; b++) {
-    for (var a = 0; a < deck.length; a++) {//var b = 0; b < p; b++
-      card = deck.splice(0, 1);
-      console.log(card);
-      console.log(deck);
+
+    var players =[];
+    var deck = createDeck();
+    shuffle(deck);
+    //p = 4; //hardcoding number of players for now
+    console.log("SECOND SHUFFLE");
+    console.log(deck);
+    console.log(deck.length);
+
+    for(var i =0;i<p ;i++)
+    {
+        var temp=[];
+        players.push(temp);
     }
 
- }
-return card;
-  //return shuffle(deck).splice(card, 1)[0];
-}
+    for( var cardIndex=0; cardIndex < deck.length;)
+    {
+        for(var playerIndex =0; playerIndex < p;playerIndex++)
+        {
+            if(cardIndex < deck.length)
+            {
+                var card = deck[cardIndex];
+                players[playerIndex].push(card);
+                cardIndex++;
+            }
+        }
 
-var testingDeck = createDeck();
-console.log("FIRST SHUFFLE BEGINS");
-shuffle(testingDeck);
-console.log(testingDeck);
-console.log("FIRST SHUFFLE ENDS");
-deal(5);
+    }
+    return players;
+    //return shuffle(deck).splice(card, 1)[0];
+  }
+
+   var noofplayers=8;
+   var players = deal(noofplayers);
+   for(var i=0;i<players.length;i++)
+   {
+       console.log("Player "+ i +" card",players[i] );
+
+   }
+
+
+//number of cards
+//number of cards per player - distributed equally or not.
