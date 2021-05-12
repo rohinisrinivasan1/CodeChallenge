@@ -38,19 +38,15 @@ var deal = function(p) {
   console.log("SECOND SHUFFLE");
   console.log(deck);
   console.log(deck.length);
-  for (var a = 0; a < deck.length; a++) {
-    for (var b = 0; b < p; b++) {
+ for (var b = 0; b < p; b++) {
+    for (var a = 0; a < deck.length; a++) {//var b = 0; b < p; b++
       card = deck.splice(0, 1);
       console.log(card);
       console.log(deck);
-
     }
-      return card;
-    //  console.log(card);
-    console.log("HELLOOOOO");
 
-  }
-
+ }
+return card;
   //return shuffle(deck).splice(card, 1)[0];
 }
 
